@@ -1,0 +1,112 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11-abr-2016, 11:14:23
+    Author     : Raúl Pérez
+*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html, body {
+    background-color: #59d9f9 !important;
+}
+
+img {
+    float: left;
+    margin-right: 20px !important;
+}
+
+#cont {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    width: 80%;
+    margin: 15px auto;
+    text-align: left;
+    box-shadow: 0 0 30px black;
+    background-color: white;
+}
+
+#cab {
+    background-color: #c4c4c4;
+    padding: 20px;
+    color: black;
+}
+
+#my {
+    margin-top: 4px;
+}
+
+#flecha {
+    margin-top: -5%;
+    margin-left: 90%;
+}
+
+#sec {
+    background-color: white;
+}
+
+#art {
+    width: 30%;
+    margin-left: 36% !important;
+    text-align: center;
+}
+
+#contBot {
+    padding: 5%;
+    text-align: left;
+    margin-left: -20%;
+}
+
+#plusAñadirCli {
+    color: #00c133;
+}
+
+#divCli {
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+}
+
+#englobarClientes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin: 30px;
+    padding: 10px;
+    
+}
+
+#divClientes {
+    width: 20%;
+    border: 1px solid black;
+    border-radius: 6px;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+#admCli {
+    width: 20%;
+    height: 20%;
+    margin-left: 30%;
+    
+}
+
+#admAdm {
+    width: 20%;
+    height: 20%;
+    
+}
+
+#foot {
+    background-color: #c4c4c4;
+    text-align: center;
+    padding: 20px;
+    color: black;
+}
