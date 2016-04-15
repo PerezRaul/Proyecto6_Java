@@ -6,12 +6,12 @@
 
 <%@page import="controller.Operaciones"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="model.Administrador"%>
+<%@page import="model.Producto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Principal Administrador</title>
+        <title>Principal Cliente</title>
         <meta lang="es">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,31 +35,23 @@
             <header id="cab">
                 <img src="img/logo.png" width="50px" height="55px" />
                 <h1 id="my">Tienda Virtual</h1>
-                <a href="prinAdmin.jsp"><img id="flecha" src="img/flecha.png" width="50px" height="50px" /></a>
             </header>
             <section id="sec">
                 <div id="divCli">
-                    <h1>Gestión de Administradores <a href="registrar_administrador.jsp"><i id="plusAñadirCli" class="fa fa-plus"></i></a></h1>
+                    <h1>Visualizar Productos </h1>
                 </div>
                 <div id="englobarClientes">
                     <%
-                        ArrayList<Administrador> lista = new ArrayList<Administrador>();
+                        ArrayList<Producto> lista = new ArrayList<Producto>();
                         Operaciones op = new Operaciones();  
-                        op.leerAdministradores(lista);
+                        op.leerProductosCli(lista);
 
-                        for(Administrador adm:lista){
+                        for(Producto pro:lista){
                             out.println("<div id='divClientes'>");
-                                out.println("<i class='fa fa-cogs fa-5x'></i><br />");
-                                out.println("<b>Nombre:</b> "+adm.getAdm_nombre()+"<br />");
-                                out.println("<b>DNI:</b> "+adm.getAdm_DNI()+"<br />");
-                                out.println("<b>Teléfono:</b> "+adm.getAdm_telefono()+"<br /><br />");
-                                int idAdm = adm.getAdm_id();
-                                out.println("<a href='modificar_administrador.jsp?idAdm="+idAdm+"' class='btn btn-default'>Editar</a>");
-                                if (adm.getAdm_estado() == 0){
-                                    out.println("<a href='' class='btn btn-danger'>Eliminar</a>");
-                                } else {
-                                    out.println("<a href='' class='btn btn-success'>Activar</a>");
-                                }
+                                out.println("<i class='fa fa-shopping-cart fa-5x'></i><br />");
+                                out.println("<b>Título:</b> "+pro.getPro_nombre()+"<br />");
+                                out.println("<b>Cantidad:</b> "+pro.getPro_cantidad()+"<br />");
+                                out.println("<b>Precio:</b> "+pro.getPro_precio()+"€<br /><br />");
                             out.println("</div>");
                         }
                    %>

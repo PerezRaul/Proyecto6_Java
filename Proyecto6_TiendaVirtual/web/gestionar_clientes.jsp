@@ -53,8 +53,13 @@
                                 out.println("<b>Nombre:</b> "+cli.getCli_nombre()+"<br />");
                                 out.println("<b>DNI:</b> "+cli.getCli_DNI()+"<br />");
                                 out.println("<b>Teléfono:</b> "+cli.getCli_telefono()+"<br /><br />");
-                                out.println("<a href='modificar_cliente.jsp?id='"+cli.getCli_id()+" class='btn btn-default'>Editar</a>");
-                                out.println("<a href='' class='btn btn-danger'>Eliminar</a>");
+                                int idCli = cli.getCli_id();
+                                out.println("<a href='modificar_cliente.jsp?idCli="+idCli+"' class='btn btn-default'>Editar</a>");
+                                if (cli.getCli_estado() == 0){
+                                    out.println("<a href='' class='btn btn-danger'>Eliminar</a>");
+                                } else {
+                                    out.println("<a href='' class='btn btn-success'>Activar</a>");
+                                }
                             out.println("</div>");
                         }
                    %>

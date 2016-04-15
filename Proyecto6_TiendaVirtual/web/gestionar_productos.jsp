@@ -53,8 +53,14 @@
                                 out.println("<b>Título:</b> "+pro.getPro_nombre()+"<br />");
                                 out.println("<b>Cantidad:</b> "+pro.getPro_cantidad()+"<br />");
                                 out.println("<b>Precio:</b> "+pro.getPro_precio()+"€<br /><br />");
-                                out.println("<a href=\"modificar_producto.jsp?id='"+pro.getPro_id()+"'\" class='btn btn-default'>Editar</a>");
-                                out.println("<a href='' class='btn btn-danger'>Eliminar</a>");
+                                int idProd = pro.getPro_id();
+                                out.println("<a href='modificar_producto.jsp?idProd="+idProd+"' class='btn btn-default'>Editar</a>");
+                                if (pro.getPro_estado() == 0){
+                                    out.println("<a href='' class='btn btn-danger'>Eliminar</a>");
+                                } else {
+                                    out.println("<a href='' class='btn btn-success'>Activar</a>");
+                                }
+                                
                             out.println("</div>");
                         }
                    %>

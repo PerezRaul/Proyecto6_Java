@@ -70,7 +70,7 @@
                             <div style="color:red;">
 
                             </div>
-                            <input type="submit" class="btn btn-default" name="entrar" value="Entrar" /> <a href="index.jsp" class="btn btn-primary">Volver</a>
+                            <input type="submit" class="btn btn-default" name="entrar" value="Registrar" /> <a href="index.jsp" class="btn btn-primary">Volver</a>
                 	</form><br />
                 </article>
             </section>

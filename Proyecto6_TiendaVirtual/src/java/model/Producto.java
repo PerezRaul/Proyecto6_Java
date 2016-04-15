@@ -13,7 +13,7 @@ public class Producto {
     private int pro_id;
     private String pro_nombre;
     private int pro_cantidad;
-    private double pro_precio;
+    private int pro_precio;
     private int pro_estado;
     
     /////////////////// Getters ///////////////////
@@ -30,7 +30,7 @@ public class Producto {
         return pro_cantidad;
     }
 
-    public double getPro_precio() {
+    public int getPro_precio() {
         return pro_precio;
     }
 
@@ -54,7 +54,7 @@ public class Producto {
         this.pro_cantidad = pro_cantidad;
     }
 
-    public void setPro_precio(double pro_precio) {
+    public void setPro_precio(int pro_precio) {
         this.pro_precio = pro_precio;
     }
 
@@ -69,7 +69,7 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(int pro_id, String pro_nombre, int pro_cantidad, double pro_precio, int pro_estado) {
+    public Producto(int pro_id, String pro_nombre, int pro_cantidad, int pro_precio, int pro_estado) {
         this.pro_id = pro_id;
         this.pro_nombre = pro_nombre;
         this.pro_cantidad = pro_cantidad;
