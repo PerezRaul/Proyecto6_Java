@@ -35,7 +35,6 @@
             <header id="cab">
                 <img src="img/logo.png" width="50px" height="55px" />
                 <h1 id="my">Tienda Virtual</h1>
-                <a href="gestionar_clientes.jsp"><img id="flecha" src="img/flecha.png" width="50px" height="50px" /></a>
             </header>
             <section id="sec">
                 <article id="art">
@@ -54,12 +53,12 @@
                 	<form name="form" action="ModificarClienteController" method="post">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" name="id" placeholder="Nombre" class="form-control" value="<% out.println(cli.getCli_id()); %>" readonly />
+                                <input type="text" name="id" placeholder="Nombre" class="form-control" value="<% out.print(cli.getCli_id()); %>" readonly />
                             </div><br />
                             
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" name="nombre" maxlength="50" placeholder="Nombre" class="form-control" value="<% out.println(cli.getCli_nombre()); %>" required />
+                                <input type="text" name="nombre" maxlength="50" placeholder="Nombre" class="form-control" value="<% out.print(cli.getCli_nombre()); %>" required />
                             </div><br />
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
@@ -67,23 +66,23 @@
                             </div><br />
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-home"></i></span>
-                                <input type="text" name="direccion" maxlength="50" placeholder="Dirección" class="form-control" value="<% out.println(cli.getCli_direccion()); %>" required />
+                                <input type="text" name="direccion" maxlength="50" placeholder="Dirección" class="form-control" value="<% out.print(cli.getCli_direccion()); %>" required />
                             </div><br />
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-home"></i></span>
-                                <input type="text" name="cp" maxlength="5" placeholder="Codigo Postal" class="form-control" title="Formato no correcto. Ejemplo de formato: 08907" pattern="[\d]{5}" value="<% out.println(cli.getCli_cp()); %>" required />
+                                <input type="text" name="cp" maxlength="5" placeholder="Codigo Postal" class="form-control" title="Formato no correcto. Ejemplo de formato: 08907" pattern="[\d]{5}" value="<% out.print(cli.getCli_cp()); %>" required />
                             </div><br />
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-at"></i></span>
-                                <input type="text" name="email" maxlength="50" placeholder="Correo Electrónico" class="form-control" title="Formato no correcto. Ejemplo de formato: direccion@web.es" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value="<% out.println(cli.getCli_email()); %>" required />
+                                <input type="text" name="email" maxlength="50" placeholder="Correo Electrónico" class="form-control" title="Formato no correcto. Ejemplo de formato: direccion@web.es" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value="<% out.print(cli.getCli_email()); %>" required />
                             </div><br />
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-mobile-phone fa-lg"></i></span>
-                                <input type="text" name="telf" maxlength="9" placeholder="Teléfono" class="form-control" value="<% out.println(cli.getCli_telefono()); %>" required />
+                                <input type="text" name="telf" maxlength="9" placeholder="Teléfono" class="form-control" value="<% out.print(cli.getCli_telefono()); %>" required />
                             </div><br />
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                <input type="password" name="pwd" maxlength="50" placeholder="Password" class="form-control" value="<% out.println(cli.getCli_password()); %>" required />
+                                <input type="password" name="pwd" maxlength="50" placeholder="Password" class="form-control" value="<% out.print(cli.getCli_password()); %>" required />
                             </div><br />
                             <div style="color:red;">
 

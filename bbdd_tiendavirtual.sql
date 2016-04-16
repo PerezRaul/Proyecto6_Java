@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-04-2016 a las 11:59:38
+-- Tiempo de generación: 16-04-2016 a las 22:56:06
 -- Versión del servidor: 5.6.25
 -- Versión de PHP: 5.6.11
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `tbl_cliente` (
   `cli_password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `cli_estado` int(1) NOT NULL,
   `rol_id` int(2) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `tbl_cliente`
@@ -76,7 +76,8 @@ CREATE TABLE IF NOT EXISTS `tbl_cliente` (
 INSERT INTO `tbl_cliente` (`cli_id`, `cli_nombre`, `cli_DNI`, `cli_direccion`, `cli_cp`, `cli_email`, `cli_telefono`, `cli_password`, `cli_estado`, `rol_id`) VALUES
 (1, 'Raul Perez', '46921359E', 'Rambla de la Marina', '08923', 'raul.perez@gmail.com', '642532743', 'raul123', 0, 1),
 (2, 'Felipe Iglesias', '53885533L', 'Mare de Deu de Bellvitge', '08242', 'felipe.iglesias@gmail.com', '623416822', 'felipe123', 0, 1),
-(3, '123', '12345678Y', '123', '12345', '123@asd.es', '1234556', '123', 1, 1);
+(3, '123', '12345678Y', '123', '12345', '123@asd.es', '1234556', '123', 1, 1),
+(4, 'Lidia Marquez', '92423423Y', 'Esadkjasid', '08901', 'asdjasjidas@gmail.com', '644293484', '1234', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -144,7 +145,7 @@ INSERT INTO `tbl_producto` (`pro_id`, `pro_nombre`, `pro_cantidad`, `pro_precio`
 (1, 'Se venden pinzas para tender', 101, 6, 0),
 (2, 'Se venden peines para calvos', 50, 20, 0),
 (3, '123', 12, 11, 0),
-(4, '123', 12, 1, 1);
+(4, '1234', 12, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -219,7 +220,7 @@ ALTER TABLE `tbl_administrador`
 -- AUTO_INCREMENT de la tabla `tbl_cliente`
 --
 ALTER TABLE `tbl_cliente`
-  MODIFY `cli_id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `cli_id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `tbl_compra`
 --

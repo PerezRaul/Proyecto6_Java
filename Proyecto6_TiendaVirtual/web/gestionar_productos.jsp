@@ -54,11 +54,12 @@
                                 out.println("<b>Cantidad:</b> "+pro.getPro_cantidad()+"<br />");
                                 out.println("<b>Precio:</b> "+pro.getPro_precio()+"€<br /><br />");
                                 int idProd = pro.getPro_id();
+                                String nombre = pro.getPro_nombre();
                                 out.println("<a href='modificar_producto.jsp?idProd="+idProd+"' class='btn btn-default'>Editar</a>");
                                 if (pro.getPro_estado() == 0){
-                                    out.println("<a href='' class='btn btn-danger'>Eliminar</a>");
+                                    out.println("<button class='btn btn-danger' id='eliminar"+idProd+"' identificador='"+idProd+"' titulo='"+nombre+"'>Eliminar</a>");
                                 } else {
-                                    out.println("<a href='' class='btn btn-success'>Activar</a>");
+                                    out.println("<button class='btn btn-success' id='activar"+idProd+"' identificador='"+idProd+"' titulo='"+nombre+"'>Activar</a>");
                                 }
                                 
                             out.println("</div>");
@@ -66,9 +67,63 @@
                    %>
                 </div>
             </section>
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title"><b>¿Estás seguro de eliminar este producto?</b></h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="formModal" action="EliminarProductoController" method="post">
+                                <b>Identificador: </b><input type="number" id="idProducto" name="id" class="form-control" readonly /><br />
+                                <b>Título: </b><input type="text" id="nombreProducto" name="nombre" class="form-control" readonly /><br />
+                                <div id="botonesModal">
+                                    <input type="submit" class="btn btn-success" value="Aceptar" />
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal2" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title"><b>¿Estás seguro de activar este producto?</b></h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="formModal2" action="ActivarProductoController" method="post">
+                                <b>Identificador: </b><input type="number" id="idProducto2" name="id" class="form-control" readonly /><br />
+                                <b>Título: </b><input type="text" id="nombreProducto2" name="nombre" class="form-control" readonly /><br />
+                                <div id="botonesModal">
+                                    <input type="submit" class="btn btn-success" value="Aceptar" />
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <footer id="foot">
             	<b><p>Derechos reservados &copy;2016 - Raúl Pérez</p></b>
             </footer>
         </div>
+        <script>
+            for( var i = 1; i<100; i++){
+                $('#eliminar'+i).click( function(){
+                    $('#myModal').modal();
+                    $('#idProducto').val($(this).attr('identificador'));
+                    $('#nombreProducto').val($(this).attr('titulo'));
+
+                });
+                $('#activar'+i).click( function(){
+                    $('#myModal2').modal();
+                    $('#idProducto2').val($(this).attr('identificador'));
+                    $('#nombreProducto2').val($(this).attr('titulo'));
+
+                });
+            }
+        </script>
     </body>
 </html>

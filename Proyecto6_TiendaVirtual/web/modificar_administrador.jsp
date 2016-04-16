@@ -35,7 +35,6 @@
             <header id="cab">
                 <img src="img/logo.png" width="50px" height="55px" />
                 <h1 id="my">Tienda Virtual</h1>
-                <a href="gestionar_administradores.jsp"><img id="flecha" src="img/flecha.png" width="50px" height="50px" /></a>
             </header>
             <section id="sec">
                 <article id="art">
@@ -87,7 +86,7 @@
                             <div style="color:red;">
 
                             </div>
-                            <input type="submit" class="btn btn-default" name="entrar" value="Modificar" /> <a href="gestionar_clientes.jsp" class="btn btn-primary">Volver</a>
+                            <input type="submit" class="btn btn-default" name="entrar" value="Modificar" /> <a href="gestionar_administradores.jsp" class="btn btn-primary">Volver</a>
                 	</form><br />
                         <%
                             }

@@ -27,11 +27,12 @@ public class Operaciones {
     public boolean validarCliente(String dni, String password) {
         boolean estado = false;
         try {
-            sSQL = "select * from tbl_cliente where cli_DNI = ? and cli_password = ?";
+            sSQL = "select * from tbl_cliente where cli_DNI = ? and cli_password = ? and cli_estado = ?";
 
             PreparedStatement pst = con.prepareStatement(sSQL);
             pst.setString(1, dni);
             pst.setString(2, password);
+            pst.setInt(3, 0);
 
             ResultSet rs = pst.executeQuery();
             estado = rs.next();
@@ -45,11 +46,12 @@ public class Operaciones {
     public boolean validarAdmin(String user, String pass) {
         boolean estado = false;
         try {
-            sSQL = "select * from tbl_administrador where adm_DNI = ? and adm_password = ?";
+            sSQL = "select * from tbl_administrador where adm_DNI = ? and adm_password = ? and adm_estado = ?";
 
             PreparedStatement pst = con.prepareStatement(sSQL);
             pst.setString(1, user);
             pst.setString(2, pass);
+            pst.setInt(3, 0);
 
             ResultSet rs = pst.executeQuery();
             estado = rs.next();
@@ -243,6 +245,42 @@ public class Operaciones {
         }
     }
     
+    public boolean eliminarCliente (Cliente cli){
+        int id = cli.getCli_id();
+        sSQL = "update tbl_cliente set cli_estado = ? where cli_id = "+id;
+        try {
+            PreparedStatement pst = con.prepareStatement(sSQL);
+            pst.setInt(1, 1);
+            
+            int n = pst.executeUpdate();
+            if (n != 0){
+                return true;
+            }else{
+                return false;
+            }
+        }catch(Exception e){
+            return false;
+        }
+    }
+    
+    public boolean activarCliente (Cliente cli){
+        int id = cli.getCli_id();
+        sSQL = "update tbl_cliente set cli_estado = ? where cli_id = "+id;
+        try {
+            PreparedStatement pst = con.prepareStatement(sSQL);
+            pst.setInt(1, 0);
+            
+            int n = pst.executeUpdate();
+            if (n != 0){
+                return true;
+            }else{
+                return false;
+            }
+        }catch(Exception e){
+            return false;
+        }
+    }
+    
     public ArrayList leerAdministradores (ArrayList lista){
         sSQL = "select * from tbl_administrador";
         try {
@@ -319,6 +357,42 @@ public class Operaciones {
             pst.setString(5, adm.getAdm_email());
             pst.setString(6, adm.getAdm_telefono());
             pst.setString(7, adm.getAdm_password());
+            
+            int n = pst.executeUpdate();
+            if (n != 0){
+                return true;
+            }else{
+                return false;
+            }
+        }catch(Exception e){
+            return false;
+        }
+    }
+    
+    public boolean eliminarAdministrador (Administrador adm){
+        int id = adm.getAdm_id();
+        sSQL = "update tbl_administrador set adm_estado = ? where adm_id = "+id;
+        try {
+            PreparedStatement pst = con.prepareStatement(sSQL);
+            pst.setInt(1, 1);
+            
+            int n = pst.executeUpdate();
+            if (n != 0){
+                return true;
+            }else{
+                return false;
+            }
+        }catch(Exception e){
+            return false;
+        }
+    }
+    
+    public boolean activarAdministrador (Administrador adm){
+        int id = adm.getAdm_id();
+        sSQL = "update tbl_administrador set adm_estado = ? where adm_id = "+id;
+        try {
+            PreparedStatement pst = con.prepareStatement(sSQL);
+            pst.setInt(1, 0);
             
             int n = pst.executeUpdate();
             if (n != 0){
@@ -408,6 +482,62 @@ public class Operaciones {
         }catch(Exception e){
             lista.set(0, "No hay ningún administrador que mostrar");
             return lista;
+        }
+    }
+    
+    public boolean modificarProducto (Producto pro){
+        int id = pro.getPro_id();
+        sSQL = "update tbl_producto set pro_nombre = ?, pro_cantidad = ?, pro_precio = ? where pro_id = "+id;
+        try {
+            PreparedStatement pst = con.prepareStatement(sSQL);
+            pst.setString(1, pro.getPro_nombre());
+            pst.setInt(2, pro.getPro_cantidad());
+            pst.setInt(3, pro.getPro_precio());
+            
+            int n = pst.executeUpdate();
+            if (n != 0){
+                return true;
+            }else{
+                return false;
+            }
+        }catch(Exception e){
+            return false;
+        }
+    }
+    
+    public boolean eliminarProducto (Producto pro){
+        int id = pro.getPro_id();
+        sSQL = "update tbl_producto set pro_estado = ? where pro_id = "+id;
+        try {
+            PreparedStatement pst = con.prepareStatement(sSQL);
+            pst.setInt(1, 1);
+            
+            int n = pst.executeUpdate();
+            if (n != 0){
+                return true;
+            }else{
+                return false;
+            }
+        }catch(Exception e){
+            return false;
+        }
+    }
+    
+    public boolean activarProducto (Producto pro){
+        int id = pro.getPro_id();
+        sSQL = "update tbl_producto set pro_estado = ? where pro_id = "+id;
+        try {
+            PreparedStatement pst = con.prepareStatement(sSQL);
+            pst.setInt(1, 0);
+            
+            int n = pst.executeUpdate();
+            if (n != 0){
+                return true;
+            }else{
+                return false;
+            }
+        }catch(Exception e){
+            return false;
         }
     }
     

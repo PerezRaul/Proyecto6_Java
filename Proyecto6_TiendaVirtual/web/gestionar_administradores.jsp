@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : index
     Created on : 11-abr-2016, 11:14:23
@@ -54,20 +55,75 @@
                                 out.println("<b>DNI:</b> "+adm.getAdm_DNI()+"<br />");
                                 out.println("<b>Teléfono:</b> "+adm.getAdm_telefono()+"<br /><br />");
                                 int idAdm = adm.getAdm_id();
+                                String nombre = adm.getAdm_nombre();
                                 out.println("<a href='modificar_administrador.jsp?idAdm="+idAdm+"' class='btn btn-default'>Editar</a>");
                                 if (adm.getAdm_estado() == 0){
-                                    out.println("<a href='' class='btn btn-danger'>Eliminar</a>");
+                                    out.println("<button class='btn btn-danger' id='eliminar"+idAdm+"' identificador='"+idAdm+"' nombre='"+nombre+"'> Eliminar </button>");
                                 } else {
-                                    out.println("<a href='' class='btn btn-success'>Activar</a>");
+                                    out.println("<button class='btn btn-success' id='activar"+idAdm+"' identificador='"+idAdm+"' nombre='"+nombre+"'> Activar </button>");
                                 }
                             out.println("</div>");
                         }
                    %>
                 </div>
             </section>
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title"><b>¿Estás seguro de eliminar este administrador?</b></h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="formModal" action="EliminarAdministradorController" method="post">
+                                <b>Identificador: </b><input type="number" id="idAdministrador" name="id" class="form-control" readonly /><br />
+                                <b>Título: </b><input type="text" id="nombreAdministrador" name="nombre" class="form-control" readonly /><br />
+                                <div id="botonesModal">
+                                    <input type="submit" class="btn btn-success" value="Aceptar" />
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal2" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title"><b>¿Estás seguro de activar este administrador?</b></h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="formModal2" action="ActivarAdministradorController" method="post">
+                                <b>Identificador: </b><input type="number" id="idAdministrador2" name="id" class="form-control" readonly /><br />
+                                <b>Título: </b><input type="text" id="nombreAdministrador2" name="nombre" class="form-control" readonly /><br />
+                                <div id="botonesModal">
+                                    <input type="submit" class="btn btn-success" value="Aceptar" />
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <footer id="foot">
             	<b><p>Derechos reservados &copy;2016 - Raúl Pérez</p></b>
             </footer>
         </div>
+        <script>
+            for( var i = 1; i<100; i++){
+                $('#eliminar'+i).click( function(){
+                    $('#myModal').modal();
+                    $('#idAdministrador').val($(this).attr('identificador'));
+                    $('#nombreAdministrador').val($(this).attr('nombre'));
+
+                });
+                $('#activar'+i).click( function(){
+                    $('#myModal2').modal();
+                    $('#idAdministrador2').val($(this).attr('identificador'));
+                    $('#nombreAdministrador2').val($(this).attr('nombre'));
+
+                });
+            }
+        </script>
     </body>
 </html>

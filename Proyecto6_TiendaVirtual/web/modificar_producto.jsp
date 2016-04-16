@@ -35,7 +35,6 @@
             <header id="cab">
                 <img src="img/logo.png" width="50px" height="55px" />
                 <h1 id="my">Tienda Virtual</h1>
-                <a href="gestionar_clientes.jsp"><img id="flecha" src="img/flecha.png" width="50px" height="50px" /></a>
             </header>
             <section id="sec">
                 <article id="art">
@@ -51,22 +50,22 @@
 
                             for(Producto prod:lista){
                        %>
-                	<form name="form" action="" method="post">
+                	<form name="form" action="ModificarProductoController" method="post">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" name="id" placeholder="Nombre" class="form-control" value="<% out.println(prod.getPro_id()); %>" readonly />
+                                <input type="text" name="id" placeholder="Nombre" class="form-control" value="<% out.print(prod.getPro_id()); %>" readonly />
                             </div><br />
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-shopping-cart"></i></span>
-                                <input type="text" name="nombre" maxlength="50" placeholder="Título" class="form-control" value="<% out.println(prod.getPro_nombre()); %>" required />
+                                <input type="text" name="nombre" maxlength="50" placeholder="Título" class="form-control" value="<% out.print(prod.getPro_nombre()); %>" required />
                             </div><br />
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-cart-plus"></i></span>
-                                <input type="number" name="cantidad" placeholder="Cantidad" class="form-control" value="<% out.println(prod.getPro_cantidad()); %>" required />
+                                <input type="number" name="cantidad" placeholder="Cantidad" class="form-control" value="<% out.print(prod.getPro_cantidad()); %>" required />
                             </div><br />
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-money"></i></span>
-                                <input type="number" name="precio" placeholder="Precio" class="form-control" value="<% out.println(prod.getPro_precio()); %>" required />
+                                <input type="number" name="precio" placeholder="Precio" class="form-control" value="<% out.print(prod.getPro_precio()); %>" required />
                             </div><br />
                             <div style="color:red;">
 
@@ -78,7 +77,6 @@
                         %>
                 </article>
             </section>
-                    
             <footer id="foot">
             	<b><p>Derechos reservados &copy;2016 - Raúl Pérez</p></b>
             </footer>
